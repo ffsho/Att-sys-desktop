@@ -53,6 +53,15 @@ def getallusers():
     return users
 
 
+def totalreg():
+    conn = get_db()
+    cursor = conn.cursor()
+    cursor.execute("SELECT count(id) FROM Users")
+    totalusers = cursor.fetchall()
+    conn.close()
+    return totalusers[0][0]
+
+
 # Функция для удаления пользователя по ID с обновлением остальных ID
 def delete_user(user_id):
     conn = get_db()

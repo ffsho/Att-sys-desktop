@@ -1,3 +1,9 @@
-from src.db.db import *
+from app.db import *
+from app.utils import *
 
-create_table()
+
+if __name__ == "__main__":
+
+    create_directories()
+    create_table()
+    print(totalreg())
