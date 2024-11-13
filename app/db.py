@@ -1,27 +1,15 @@
 import sqlite3
-
-
-# Функция инициализации базы данных
-def db_init():
-    conn = sqlite3.connect('users.db')
-    cursor = conn.cursor()
-    cursor.execute('''
-        CREATE TABLE IF NOT EXISTS Users (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            lastname TEXT NOT NULL,
-            name TEXT NOT NULL)
-        ''')
-    conn.commit()
-    conn.close()
+from app.definitions import DB_PATH
+import os
 
 
 # Функция для получения соединения с базой данных
 def get_db():
-    return sqlite3.connect('users.db')
+    return sqlite3.connect(DB_PATH)
 
 
 # Функция для создания таблиц в базе данных
-def create_table():
+def db_init():
     conn = get_db()
     cursor = conn.cursor()
     cursor.execute('''

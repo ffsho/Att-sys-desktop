@@ -5,5 +5,6 @@ from app.utils import *
 if __name__ == "__main__":
 
     create_directories()
-    create_table()
+    db_init()
     print(totalreg())
+    
